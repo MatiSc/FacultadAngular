@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-ui/build/angular-ui.min.js"></script>
+        <script src="components/version/version.js"></script>
+        <script src="components/version/version-directive.js"></script>
+        <script src="components/version/interpolate-filter.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="bower_components/angular-ui/build/angular-ui.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+        <!-- My Styles -->
+        <link rel="stylesheet" href="app.css">
+        <link rel="stylesheet" href="hamburguer-cross.css">
+        <!-- My Scripts -->
+        <script src="app.js"></script>
+        <script src="controllers/gameListCtrl.js"></script>
+
+
+      <title>My AngularJS App</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+
+    <body ng-app="myApp">
+        <div ui-view="main"></div>
+    </body>
+
+
+    <script>
+        $(document).ready(function () {
+            var trigger = $('.hamburger'),
+                    isClosed = false;
+
+            trigger.click(function () {
+                hamburger_cross();
+            });
+
+            function hamburger_cross() {
+
+                if (isClosed == true) {
+                    trigger.removeClass('is-open');
+                    trigger.addClass('is-closed');
+                    isClosed = false;
+                } else {
+                    trigger.removeClass('is-closed');
+                    trigger.addClass('is-open');
+                    isClosed = true;
+                }
+            }
+
+            $('[data-toggle="offcanvas"]').click(function () {
+                $('#wrapper').toggleClass('toggled');
+            });
+        });
+    </script>
+
+</html>
